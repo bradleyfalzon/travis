@@ -8,6 +8,9 @@ script:
     - go env
     - go list std
     - tree $(go env GOROOT)/src
+    - echo $GOROOT
+    - env | grep GOROOT
+    - grep DefaultGoroot $(go env GOROOT)/src/runtime/internal/sys/zversion.go
     - go install
     - go vet ./...
     - go get honnef.co/go/tools/cmd/staticcheck
