@@ -8,5 +8,7 @@ script:
     - go env
     - go list std
     - tree $(go env GOROOT)/src
+    - go install
+    - go vet ./...
     - go get honnef.co/go/tools/cmd/staticcheck
     - staticcheck ./...
