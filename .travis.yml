@@ -1,10 +1,12 @@
 language: go
 go:
     - 1.9
+before_install:
+	- sudo apt-get -qq update
+	- sudo apt-get install -y tree
 script:
     - go env
     - go list std
-    - apt-get install tree
     - tree $(go env GOROOT)/src
     - go get honnef.co/go/tools/cmd/staticcheck
     - staticcheck ./...
