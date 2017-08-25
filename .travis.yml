@@ -1,9 +1,10 @@
 language: go
 go:
-    - 1.x
+    - 1.9
 script:
     - go env
     - go list std
+    - apt-get install tree
     - tree $(go env GOROOT)/src
     - go get honnef.co/go/tools/cmd/staticcheck
     - staticcheck ./...
