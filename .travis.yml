@@ -1,0 +1,9 @@
+language: go
+go:
+    - 1.x
+script:
+    - go env
+    - go list std
+    - tree $(go env GOROOT)/src
+    - go get honnef.co/go/tools/cmd/staticcheck
+    - staticcheck ./...
